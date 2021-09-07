@@ -30,6 +30,15 @@ const validateEmail = (email) => {
   return re.test(String(email).toLowerCase());
 };
 
+function CheckPassword(inputtxt) {
+  const paswd = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
+  if (inputtxt.match(paswd)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 // Event-listeners
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -38,6 +47,7 @@ form.addEventListener('submit', (e) => {
   } else {
     ShowSuccess(username);
   }
+
   if (email.value == '') {
     ShowError(email, 'Email is required');
   } else if (!validateEmail(email.value)) {
@@ -45,11 +55,15 @@ form.addEventListener('submit', (e) => {
   } else {
     ShowSuccess(email);
   }
+
   if (password.value == '') {
     ShowError(password, 'Password is required');
+  } else if (CheckPassword(password.value) == false) {
+    ShowError_1(password, `Provide Strong password`);
   } else {
     ShowSuccess(password);
   }
+
   if (con_pass.value == '') {
     ShowError(con_pass, 'Confirm Password is required');
   } else if (password.value !== con_pass.value) {

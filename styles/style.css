@@ -72,6 +72,13 @@ form {
 .form-control.succuss input {
   border-color: green;
 }
+
+.password-msg {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--clr-Background);
+  /*  visibility:hidden; */
+}
 small {
   float: right;
   width: 45%;
