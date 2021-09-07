@@ -103,3 +103,15 @@ button:hover {
   border: 2px solid var(--clr-dark);
   color: var(--clr-white);
 }
+
+@media (max-width: 600px) {
+  .form-control input {
+    width: 100%;
+  }
+  h1 {
+    font-size: 2.1rem;
+  }
+  .form-control input {
+    font-size: 1.4rem;
+  }
+}
