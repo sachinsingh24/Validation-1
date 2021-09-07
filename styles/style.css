@@ -81,9 +81,10 @@ small {
 .form-control.error small {
   visibility: visible;
 }
-.form-control.error-1 small{
-  color:red;
-   visibility: visible;
+.form-control.error-1 small {
+  color: red;
+  visibility: visible;
+  font-weight: 600;
 }
 button {
   cursor: pointer;

@@ -53,7 +53,7 @@ form.addEventListener('submit', (e) => {
   if (con_pass.value == '') {
     ShowError(con_pass, 'Confirm Password is required');
   } else if (password.value !== con_pass.value) {
-    ShowError_1(con_pass, 'Confirm Password is Not Match');
+    ShowError_1(con_pass, `Confirm Password didn't Match`);
   } else {
     ShowSuccess(con_pass);
   }
