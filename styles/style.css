@@ -55,6 +55,7 @@ form {
   color: var(--clr-dark);
   margin-bottom: 0.1rem;
   font-size: 1.3rem;
+  margin-right: -1rem;
 }
 .form-control input {
   display: block;
@@ -120,5 +121,8 @@ button:hover {
   }
   .form-control input {
     font-size: 1.4rem;
+  }
+  small {
+    width: 60%;
   }
 }
