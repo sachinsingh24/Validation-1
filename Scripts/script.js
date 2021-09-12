@@ -1,7 +1,7 @@
 'use strict';
 
 //variables
-const form = document.getElementById('form');
+
 const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -10,11 +10,11 @@ const UserArr = [username, email, password, confirmpassword];
 
 // functions
 
-// report messages as error or success
-const ShowMsg = (input, message, error) => {
+// report InputNames as error or success
+const ShowMsg = (input, InputName, error) => {
   let formControl = input.parentElement;
   const small = formControl.querySelector('small');
-  small.innerText = message;
+  small.innerText = InputName;
   if (error == 1) {
     formControl.className = 'form-control error-1';
   } else if (error == 2) {
@@ -25,7 +25,7 @@ const ShowMsg = (input, message, error) => {
 };
 
 // place first letter as caplital of id name
-const message = (input) => {
+const InputName = (input) => {
   const errorMsg = input.id.replace(/-p/, 'P');
   return errorMsg.charAt(0).toUpperCase() + errorMsg.slice(1);
 };
@@ -33,11 +33,11 @@ const message = (input) => {
 // check username value is satisfied or not
 const checkUsername = (input, min, max) => {
   if (input.value.length < min) {
-    ShowMsg(input, `${message(input)} Must be atleast ${min} Charecters`, 1);
+    ShowMsg(input, `${InputName(input)} Must be atleast ${min} Charecters`, 1);
   } else if (input.value.length > max) {
     ShowMsg(
       input,
-      `${message(input)} should not be more then ${max} Charecters`,
+      `${InputName(input)} should not be more then ${max} Charecters`,
       1
     );
   } else {
@@ -52,7 +52,7 @@ const checkEmail = (input) => {
   if (email_Id.test(String(input.value).toLowerCase().trim())) {
     ShowMsg(input, '✔', 0);
   } else {
-    ShowMsg(input, `Email is not Valid`, 1);
+    ShowMsg(input, `${InputName(input)} is not Valid`, 1);
   }
 };
 
@@ -64,7 +64,7 @@ const checkPassword = (input) => {
   } else {
     ShowMsg(
       input,
-      `${message(
+      `${InputName(
         input
       )} must be 7 Charecters including atleast one numerical and one special charecters `,
       1
@@ -75,7 +75,7 @@ const checkPassword = (input) => {
 // check confirm password are matching with password or not
 const checkConfirmPass = (pass, con) => {
   if (pass.value !== con.value) {
-    ShowMsg(con, `${message(con)} didn't Match`, 1);
+    ShowMsg(con, `${InputName(con)} didn't Match`, 1);
   } else {
     ShowMsg(con, '✔', 0);
   }
@@ -85,7 +85,7 @@ const checkConfirmPass = (pass, con) => {
 const checkRequired = (inputArr) => {
   inputArr.forEach((Arr) => {
     if (Arr.value == '') {
-      ShowMsg(Arr, `${message(Arr)} is required`, 2);
+      ShowMsg(Arr, `${InputName(Arr)} is required`, 2);
     }
   });
 };
